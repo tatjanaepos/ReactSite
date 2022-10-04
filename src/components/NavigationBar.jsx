@@ -6,7 +6,7 @@ import {BsCartFill} from "react-icons/bs";
 function NavigationBar(){
     return(
         <div className="navBar">
-            <a>My web store</a> 
+            <a>My web store </a> 
 
             <div className="cart-items">
                 <BsCartFill></BsCartFill>
