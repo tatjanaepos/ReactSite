@@ -3,14 +3,15 @@
 import React from "react";
 import {BsCartFill} from "react-icons/bs";
 
-function NavigationBar(){
+function NavigationBar({cartNum}){
+    //const cartNum=0;
     return(
         <div className="navBar">
-            <a>My web store </a> 
+            <a>My Store </a> 
 
             <div className="cart-items">
                 <BsCartFill></BsCartFill>
-                <p className="cart-num">0</p>
+                <p className="cart-num">{cartNum}</p>
                 </div> 
         </div>
     )
