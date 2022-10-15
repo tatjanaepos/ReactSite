@@ -4,7 +4,7 @@ import {BsCartDash} from "react-icons/bs";
 
 //destruktuiranje komponenata-props objekta
 //razbije props na njegove delove
-function OneProduct({product, onAdd}) {
+function OneProduct({product, onAdd, inCart}) {
     const stil={margin:10, borderStayle:"dotted"};
     //console.log(props);
   
@@ -17,14 +17,18 @@ function OneProduct({product, onAdd}) {
     
   
     return (
-    <div className='card' style={stil}> 
-      <img className='card-img-top' src="https:/picsum.photos/200" alt="Slika" />
+    <div className={inCart===1 ? "card" : "card-cart"} style={stil}> 
+      <img className={inCart===1 ? "card-img-top" : "card-img-left"} src="https:/picsum.photos/200" alt="Slika" />
       <div className="card-body">
         <h3 className='card-title'>{product.title}</h3>
         <p className="card-text">{product.description}</p>
       </div>
-      <button className="btn" onClick={()=>onAdd(product.title)}><BsCartPlus/></button>
+      {inCart===1 ? (<>
+      <button className="btn" onClick={()=>onAdd(product.title,product.id)}><BsCartPlus/></button>
       <button className="btn"><BsCartDash/></button>
+      </>)
+      : ( <h3>Amount: {product.amount}</h3> )}
+ 
     </div>
   )
 }
